@@ -1,0 +1,13 @@
+
+- required_engine_version: 15
+
+- required_plugin_versions:
+  - name: sample
+    version: 0.1.0
+
+- rule: Sample plugin counter is in suspicious interval
+  desc: A sample rule triggered by the sample plugin
+  condition: sample.field > 1000 and sample.field < 1020
+  output: "Sample rule %sample.field"
+  priority: ERROR
+  source: sample
